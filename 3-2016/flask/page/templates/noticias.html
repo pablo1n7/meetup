@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+	<!-- Jumbotron -->
+      <div class="jumbotron">
+        <h1>
+        	{% if categoria_nombre =="Futbol" %}
+        	
+        	<i class="fa fa-futbol-o"></i>
+        	
+        	{% else %}
+
+        	<i class="fa fa-tennis-o"></i>
+
+			{% endif %}
+        	
+        	{{categoria_nombre}}
+    	</h1>
+      </div>
+
+      {% for noticia in noticias %}
+	        <div class="col-lg-4 noticia">
+            <h6 class="fecha-noticia">{{noticia.fecha}}</h6>
+            <h6 class="cat-noticia">{{categoria_nombre}}</h6>
+	          <h2 class="titulo-noticia">{{noticia.titular}}</h2>
+	          <p>{{noticia.copete}} </p>
+	          
+	        </div>		
+		{% endfor %}   
+
+{% endblock contenido %}
+
+{% block noticias %}
+{% endblock noticias %}

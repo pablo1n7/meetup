@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+   
+    <!-- Jquery -->    
+    <!--<script src="/static/jquery/jquery-2.1.4.min.js"></script>-->
+    <script src="{{ url_for('static', filename='jquery/jquery-2.1.4.min.js') }}"></script>
+
+    
+
+    <!-- Bootstrap -->    
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap-theme.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/cover.css') }}">
+    <script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+
+
+
+
+
+    <!-- Awesome -->    
+    <link rel="stylesheet" href="{{ url_for('static', filename='font-awesome/css/font-awesome.min.css') }}">
+
+    <!-- Estilos Propios -->    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}"> 
+  
+    <!-- Alertify 
+    <script src="/static/alertify/js/alertify.min.js"></script>
+    <link rel="stylesheet" href="/static/alertify/css/alertify.css">
+    <link rel="stylesheet" href="/static/alertify/css/themes/default.min.css">
+-->    
+    
+{% block estilos %} {% endblock estilos %}
+{% block script %}  {% endblock script %}
+
+
+    <title>{% block titulo %}Pasión Deportiva{% endblock titulo %}</title> 
+
+</head>
+
+<body>
+    
+   <div class="container">
+
+      <div class="">
+        <h3 class="text-muted">Pasión Deportiva</h3>
+        <nav>
+          <ul class="nav nav-justified">
+            <li class="active"><a href="/">Principal</a></li>
+            <li><a href="/noticias/Futbol">Futbol</a></li>
+            <!-- <li><a href="/noticias?categoria=tenis">Tenis</a></li> -->
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mas Deportes</a>
+
+              <ul class="dropdown-menu">
+            {% for categoria in categorias %}
+                <li><a href="/noticias/{{categoria.nombre}}">{{categoria.nombre}}</a></li>
+                <li role="separator" class="divider"></li>
+                
+            {% endfor %}  
+              </ul>
+
+
+            </li>
+
+            <li><a href="#">Contacto</a></li>
+          </ul>
+        </nav>
+      </div>
+
+    {% block contenido %}
+
+    {% endblock contenido %}
+     
+    <div class="row">
+        {% block noticias %}
+
+        {% endblock noticias %}
+    </div>
+      
+    <footer class="footer">
+       <p>&copy; Company 2016</p>
+    </footer>
+
+    </div>
+
+  
+</body>
+</html>

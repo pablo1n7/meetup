@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+	<!-- Jumbotron -->
+      <div class="jumbotron">
+        <h1>Administración</h1>
+        <p class="lead"></p>
+  
+      </div>
+
+ <form class="form-horizontal formulario" id="formulario" name="formulario" action="alta" method="post" accept-charset="UTF-8">
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="titulo">Titulo</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" name ="titulo" placeholder="Ej: Ganó Arsenal">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="copete">Copete</label>
+    <div class="col-sm-10">
+      <textarea type="text"  maxlength="130" class="form-control" name="copete" placeholder="Copete: maximo 130 caracteres"></textarea>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="cuerpo">Cuerpo</label>
+    <div class="col-sm-10">
+      <textarea type="text"  maxlength="1000" class="form-control" name="cuerpo" placeholder="Cuerpo"></textarea>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="categoria">Categoria</label>
+    <div class="col-sm-10">
+      <select class="form-control" name="categoria" placeholder="Cuerpo">
+      	{% for categoria in categorias %}
+          	<option>
+	             {{categoria.nombre}}
+	      	</option>
+        {% endfor %}  
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Enviar Noticia</button>
+    </div>
+  </div>
+</form>
+{% endblock contenido %}
+
+
+{% block noticias %}
+
+{% endblock noticias %}

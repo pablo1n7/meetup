@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+	<!-- Jumbotron -->
+      <div class="jumbotron">
+        <h1>Diario La Pasión Deportiva</h1>
+        <p class="lead">Informate con todo el deporte de la zona!</p>
+  
+      </div>
+
+
+{% endblock contenido %}
+
+
+      <!-- Example row of columns -->
+    
+    <h2 class="ultimaNoticias" >Ultimas Noticias</h1>
+		{% for noticia in noticias %}
+	        <div class="col-lg-4 noticia">
+            <h6 class="fecha-noticia">{{noticia.fecha}}</h6>
+            <h6 class="cat-noticia">{{noticia.categoria.nombre}}</h6>
+	          <h2 class="titulo-noticia">{{noticia.titular}}</h2>
+	          <p>{{noticia.copete}} </p>
+	          
+	        </div>		
+		{% endfor %}          
+
+
+</body>
+</html>
