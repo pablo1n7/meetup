@@ -4,7 +4,7 @@ from pyspectator.computer import Computer
 from pyspectator.computer import psutil
 from time import sleep
 
-TOKEN = '255936942:AAHKa3FKJcys_dpN7vIin0fJgMGuWzYeRzs'
+TOKEN = ''
 bot = telebot.TeleBot(TOKEN)
 
 
@@ -53,9 +53,6 @@ def memory(message):
     bot.send_message(cid,info)
 
      
-    
 if __name__ == '__main__':
 
     bot.polling()
-
-
